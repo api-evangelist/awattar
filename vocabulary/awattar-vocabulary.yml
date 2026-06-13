@@ -1,0 +1,120 @@
+name: aWATTar API Vocabulary
+description: >-
+  Controlled vocabulary and domain terms used in the aWATTar Market Data API,
+  covering electricity market concepts, data formats, and geographic scope.
+url: https://www.awattar.at/services/api
+created: "2026-06-13"
+modified: "2026-06-13"
+tags:
+  - Electricity
+  - Energy
+  - EPEX Spot
+  - Market Data
+terms:
+  - term: marketprice
+    label: Market Price
+    description: >-
+      The EPEX Spot hourly electricity clearing price expressed in EUR/MWh.
+      Prices can be negative when renewable energy supply exceeds grid demand,
+      meaning producers pay to offload excess electricity. Prices are
+      determined daily through the EPEX Spot day-ahead auction.
+    type: number
+    unit: Eur/MWh
+    domain: Electricity Market
+    relatedTerms:
+      - EPEX Spot
+      - EUR/MWh
+      - day-ahead price
+
+  - term: start_timestamp
+    label: Start Timestamp
+    description: >-
+      Unix epoch timestamp in milliseconds (UTC) marking the beginning of an
+      hourly pricing interval. Each interval represents one clock hour of
+      electricity delivery.
+    type: integer
+    format: epoch-milliseconds
+    domain: Time
+
+  - term: end_timestamp
+    label: End Timestamp
+    description: >-
+      Unix epoch timestamp in milliseconds (UTC) marking the end of an hourly
+      pricing interval. Typically 3,600,000 milliseconds (1 hour) after
+      start_timestamp.
+    type: integer
+    format: epoch-milliseconds
+    domain: Time
+
+  - term: unit
+    label: Price Unit
+    description: >-
+      The measurement unit for the marketprice field. Always "Eur/MWh" —
+      euros per megawatt-hour — the standard denomination for wholesale
+      European electricity markets.
+    type: string
+    values:
+      - Eur/MWh
+    domain: Electricity Market
+
+  - term: EPEX Spot
+    label: EPEX Spot Market
+    description: >-
+      European Power Exchange Spot market — the pan-European day-ahead and
+      intraday electricity trading platform. aWATTar sources its price data
+      from the EPEX Spot day-ahead auction results published daily at
+      approximately 13:00 CET, made available via the API at 14:00 CET.
+    domain: Electricity Market
+    url: https://www.epexspot.com
+
+  - term: fair-use
+    label: Fair Use Policy
+    description: >-
+      aWATTar's usage policy limiting API consumers to 100 requests per day
+      per client IP address. The API is free of charge within this limit.
+    type: policy
+    rateLimit: 100 requests/day/client
+    domain: API Governance
+
+  - term: day-ahead price
+    label: Day-Ahead Price
+    description: >-
+      Electricity price determined in the day-ahead market auction for
+      delivery the following calendar day. Prices are published daily at
+      approximately 14:00 CET, covering all 24 hours of the next day.
+    domain: Electricity Market
+
+  - term: MWh
+    label: Megawatt-Hour
+    description: >-
+      Unit of electrical energy equal to one megawatt of power sustained for
+      one hour. The standard unit for wholesale electricity pricing in
+      European markets.
+    domain: Energy Units
+    siUnit: 3.6 GJ
+
+  - term: negative price
+    label: Negative Electricity Price
+    description: >-
+      A market condition where the electricity price falls below zero,
+      indicating excess generation (typically from renewables) that exceeds
+      grid consumption. Producers pay grid operators to accept the surplus
+      electricity. Common during high-wind and high-solar periods.
+    domain: Electricity Market
+
+  - term: smart charging
+    label: Smart EV Charging
+    description: >-
+      An application use case where electric vehicle charging is dynamically
+      scheduled to coincide with low or negative electricity price periods.
+      aWATTar's API is commonly integrated with EV charge management systems
+      for this purpose.
+    domain: Application
+
+  - term: dynamic tariff
+    label: Dynamic Energy Tariff
+    description: >-
+      An electricity retail product where the consumer's per-kWh price
+      follows wholesale market prices in near real time. aWATTar's hourly
+      tariff product is built on the market data exposed by this API.
+    domain: Energy Retail

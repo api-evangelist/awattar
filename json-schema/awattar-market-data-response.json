@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/awattar/main/json-schema/awattar-market-data-response.json",
+  "title": "aWATTar Market Data Response",
+  "description": "Schema for the aWATTar API /v1/marketdata endpoint response containing hourly EPEX Spot electricity market prices",
+  "type": "object",
+  "properties": {
+    "object": {
+      "type": "string",
+      "description": "Type identifier for the response object",
+      "const": "list"
+    },
+    "data": {
+      "type": "array",
+      "description": "Array of hourly market price entries",
+      "items": {
+        "$ref": "#/$defs/MarketPriceEntry"
+      }
+    }
+  },
+  "required": ["object", "data"],
+  "$defs": {
+    "MarketPriceEntry": {
+      "title": "Market Price Entry",
+      "description": "A single hourly electricity market price data point from the EPEX Spot exchange",
+      "type": "object",
+      "properties": {
+        "start_timestamp": {
+          "type": "integer",
+          "description": "Start of the pricing interval as Unix epoch timestamp in milliseconds (UTC)",
+          "examples": [1428591600000]
+        },
+        "end_timestamp": {
+          "type": "integer",
+          "description": "End of the pricing interval as Unix epoch timestamp in milliseconds (UTC). Typically 3600000 ms (1 hour) after start_timestamp.",
+          "examples": [1428595200000]
+        },
+        "marketprice": {
+          "type": "number",
+          "description": "EPEX Spot market price for the interval in EUR/MWh. Can be negative during periods of excess renewable energy supply.",
+          "examples": [42.09, -5.12, 102.49]
+        },
+        "unit": {
+          "type": "string",
+          "description": "Unit of measurement for the market price",
+          "const": "Eur/MWh"
+        }
+      },
+      "required": ["start_timestamp", "end_timestamp", "marketprice", "unit"]
+    }
+  }
+}

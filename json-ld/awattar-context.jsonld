@@ -1,0 +1,120 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "time": "http://www.w3.org/2006/time#",
+    "awattar": "https://www.awattar.at/vocab#",
+
+    "MarketDataResponse": {
+      "@id": "awattar:MarketDataResponse",
+      "@type": "@id"
+    },
+    "MarketPriceEntry": {
+      "@id": "awattar:MarketPriceEntry",
+      "@type": "@id"
+    },
+    "object": {
+      "@id": "awattar:objectType",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "awattar:data",
+      "@container": "@list"
+    },
+    "start_timestamp": {
+      "@id": "awattar:startTimestamp",
+      "@type": "xsd:long",
+      "rdfs:comment": "Unix epoch milliseconds marking the start of a pricing interval"
+    },
+    "end_timestamp": {
+      "@id": "awattar:endTimestamp",
+      "@type": "xsd:long",
+      "rdfs:comment": "Unix epoch milliseconds marking the end of a pricing interval"
+    },
+    "marketprice": {
+      "@id": "awattar:marketPrice",
+      "@type": "xsd:double",
+      "rdfs:comment": "EPEX Spot day-ahead electricity price in EUR/MWh. May be negative."
+    },
+    "unit": {
+      "@id": "qudt:unit",
+      "@type": "xsd:string"
+    },
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "Provider": "schema:Organization",
+    "EnergyMarketData": "schema:Dataset"
+  },
+  "@graph": [
+    {
+      "@id": "https://www.awattar.at",
+      "@type": "schema:Organization",
+      "schema:name": "aWATTar",
+      "schema:description": "Austrian and German dynamic electricity tariff provider delivering real-time EPEX Spot market prices via a free public REST API.",
+      "schema:url": "https://www.awattar.at",
+      "schema:areaServed": [
+        {
+          "@type": "schema:Country",
+          "schema:name": "Austria",
+          "schema:identifier": "AT"
+        },
+        {
+          "@type": "schema:Country",
+          "schema:name": "Germany",
+          "schema:identifier": "DE"
+        }
+      ]
+    },
+    {
+      "@id": "https://api.awattar.at/v1/marketdata",
+      "@type": ["schema:EntryPoint", "awattar:MarketDataEndpoint"],
+      "schema:name": "aWATTar Market Data API",
+      "schema:description": "RESTful endpoint returning hourly EPEX Spot electricity market prices for Austria and Germany. No authentication required. Fair use: 100 requests/day/client.",
+      "schema:url": "https://api.awattar.at/v1/marketdata",
+      "schema:httpMethod": "GET",
+      "schema:encodingType": "application/json",
+      "schema:provider": {
+        "@id": "https://www.awattar.at"
+      },
+      "schema:additionalProperty": [
+        {
+          "@type": "schema:PropertyValue",
+          "schema:name": "dataSource",
+          "schema:value": "EPEX Spot"
+        },
+        {
+          "@type": "schema:PropertyValue",
+          "schema:name": "updateFrequency",
+          "schema:value": "Daily at 14:00 CET"
+        },
+        {
+          "@type": "schema:PropertyValue",
+          "schema:name": "authentication",
+          "schema:value": "None required"
+        },
+        {
+          "@type": "schema:PropertyValue",
+          "schema:name": "rateLimit",
+          "schema:value": "100 requests per day per client"
+        }
+      ]
+    },
+    {
+      "@id": "https://api.awattar.de/v1/marketdata",
+      "@type": ["schema:EntryPoint", "awattar:MarketDataEndpoint"],
+      "schema:name": "aWATTar Market Data API (Germany)",
+      "schema:description": "RESTful endpoint returning hourly EPEX Spot electricity market prices for Germany.",
+      "schema:url": "https://api.awattar.de/v1/marketdata",
+      "schema:httpMethod": "GET",
+      "schema:encodingType": "application/json",
+      "schema:provider": {
+        "@id": "https://www.awattar.at"
+      }
+    }
+  ]
+}
