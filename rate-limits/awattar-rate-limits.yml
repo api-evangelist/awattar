@@ -1,0 +1,24 @@
+name: aWATTar API Rate Limits
+description: >-
+  aWATTar enforces a fair-use rate limit on its public Market Data API.
+  The limit is designed to prevent abuse while allowing all legitimate
+  use cases including smart home automation, EV charging control, and
+  energy management applications.
+specificationVersion: "0.1"
+rateLimits:
+  - name: Daily Fair-Use Limit
+    description: >-
+      Maximum of 100 HTTP GET requests per day per client IP address.
+      This applies to both the Austrian endpoint (api.awattar.at) and
+      the German endpoint (api.awattar.de). The API has no authentication,
+      so limits are enforced by IP. For high-frequency use cases such as
+      Loxone home automation systems, aWATTar has indicated tolerance for
+      higher request rates (approximately 288 requests per day / every 5
+      minutes) when contacted in advance.
+    requests: 100
+    period: day
+    scope: ip
+    enforcement: fair-use
+    notes: >-
+      Contact aWATTar support at support.awattar.at for exceptions or
+      commercial arrangements requiring higher request volumes.

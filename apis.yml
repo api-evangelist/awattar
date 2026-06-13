@@ -1,0 +1,74 @@
+name: aWATTar
+description: >-
+  aWATTar provides a free, public REST API delivering real-time and next-day
+  hourly electricity spot prices sourced from the EPEX Spot market exchange for
+  both Austria and Germany. The API enables developers, smart home integrators,
+  and commercial operators to build dynamic energy pricing applications that
+  respond to market conditions. Prices are updated daily at 14:00 CET covering
+  the following day, and the API returns JSON data including start/end
+  timestamps and market price per MWh. No authentication token is required,
+  making integration straightforward for any developer. The service is offered
+  free of charge under a fair-use policy of 100 requests per day per client,
+  supporting use cases such as EV charging optimization, smart heating control,
+  and automated energy management systems.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/awattar/refs/heads/main/apis.yml
+created: "2026-06-13"
+modified: "2026-06-13"
+specificationVersion: "0.19"
+tags:
+  - Electricity
+  - Energy
+  - Spot Price
+  - EPEX Spot
+  - Dynamic Pricing
+  - Austria
+  - Germany
+  - Smart Energy
+  - IoT
+apis:
+  - name: aWATTar Market Data API
+    description: >-
+      RESTful API providing hourly EPEX Spot electricity market prices for
+      Austria and Germany. Returns JSON data with start/end timestamps and
+      market price in EUR/MWh. Supports optional start and end parameters
+      (epoch milliseconds) to filter the time range. No authentication required.
+      Updated daily at 14:00 CET for the next 24 hours. Available for both
+      Austria (api.awattar.at) and Germany (api.awattar.de).
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.awattar.at/services/api
+    baseURL: https://api.awattar.at
+    tags:
+      - Electricity
+      - Market Price
+      - EPEX Spot
+      - Austria
+      - Germany
+    properties:
+      - type: Documentation
+        url: https://www.awattar.at/services/api
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/awattar/refs/heads/main/openapi.yml
+common:
+  - type: Website
+    url: https://www.awattar.at
+  - type: Documentation
+    url: https://www.awattar.at/services/api
+  - type: GitHubOrg
+    url: https://github.com/awattarenergy
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/awattar
+  - type: Blog
+    url: https://www.awattar.at/blog
+  - type: Pricing
+    url: https://www.awattar.at/tariffs/hourly
+  - type: Plans
+    url: plans/awattar-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/awattar-rate-limits.yml
+  - type: FinOps
+    url: finops/awattar-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

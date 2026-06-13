@@ -1,0 +1,51 @@
+name: aWATTar API FinOps
+description: >-
+  FinOps Framework FOCUS-aligned cost profile for the aWATTar Market Data API.
+  The API is fully free with no direct monetary cost to API consumers. However,
+  it enables significant energy cost optimization for end users by exposing
+  real-time electricity spot prices that drive dynamic consumption scheduling.
+specificationVersion: "1.0"
+focus:
+  provider: aWATTar GmbH
+  service: Market Data API
+  serviceCategory: Energy Data
+  chargeCategory: None
+  billingCurrency: EUR
+  listUnitPrice: 0.00
+  effectiveCost: 0.00
+  billedCost: 0.00
+  pricingUnit: Request
+  consumedQuantity: 0
+  invoiceIssuer: None
+costDrivers:
+  - name: API Requests
+    description: >-
+      All API requests to both Austria (api.awattar.at) and Germany
+      (api.awattar.de) endpoints are free. No per-request charges apply.
+    unitCost: 0.00
+    currency: EUR
+  - name: Authentication
+    description: >-
+      No authentication, API keys, or account registration is required.
+      Zero onboarding cost.
+    unitCost: 0.00
+    currency: EUR
+optimizationOpportunities:
+  - name: Energy Cost Reduction via Dynamic Pricing
+    description: >-
+      By consuming this API, applications can shift electricity usage to
+      hours with the lowest (or negative) spot prices. In Austria, EPEX Spot
+      prices have ranged from -31.50 to 96.92 EUR/MWh within a single day.
+      Smart scheduling of EV charging, heat pumps, and pool pumps can
+      yield meaningful energy cost savings for end users.
+    type: Indirect
+  - name: Request Caching
+    description: >-
+      Since data is updated only once daily at 14:00 CET, consumers should
+      cache the response and avoid polling more than necessary. Caching
+      reduces unnecessary requests and stays well within the 100/day limit.
+    type: Efficiency
+notes: >-
+  The aWATTar API itself has zero direct cost to API consumers. FinOps value
+  is realized indirectly through energy cost optimization enabled by the data.
+  No invoicing, commitment, or reservation constructs apply.

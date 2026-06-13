@@ -1,0 +1,27 @@
+name: aWATTar API Plans and Pricing
+description: >-
+  aWATTar provides its market data API free of charge with no subscription tiers
+  or paid plans. Access is governed solely by a fair-use policy.
+specificationVersion: "0.1"
+plans:
+  - name: Free
+    description: >-
+      The aWATTar Market Data API is available at no cost to all users.
+      No registration or API key is required. Usage is subject to a fair-use
+      daily request limit. Intended for developers, smart home integrators,
+      researchers, and energy management application builders.
+    url: https://www.awattar.at/services/api
+    price: 0.00
+    currency: EUR
+    billingCycle: none
+    rateLimit:
+      requests: 100
+      period: day
+    features:
+      - Free access to hourly EPEX Spot electricity prices
+      - Austria endpoint (api.awattar.at/v1/marketdata)
+      - Germany endpoint (api.awattar.de/v1/marketdata)
+      - JSON response with start/end timestamps and EUR/MWh pricing
+      - Optional start and end query parameters (epoch milliseconds)
+      - No authentication token required
+      - Data updated daily at 14:00 CET for the following 24 hours
