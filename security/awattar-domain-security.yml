@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.awattar.at
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug  7 20:32:18 2026 GMT
+  hsts: false
+- host: api.awattar.at
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug  7 20:32:18 2026 GMT
+  hsts: null
+- host: api.awattar.de
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug  7 20:33:34 2026 GMT
+  hsts: null
+domains:
+- domain: awattar.at
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: awattar.de
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
