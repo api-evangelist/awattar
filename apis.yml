@@ -12,7 +12,19 @@ description: >-
   supporting use cases such as EV charging optimization, smart heating control,
   and automated energy management systems.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/awattar.png
 url: https://raw.githubusercontent.com/api-evangelist/awattar/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
@@ -28,28 +40,18 @@ tags:
   - Smart Energy
   - IoT
 apis:
-  - name: aWATTar Market Data API
-    description: >-
-      RESTful API providing hourly EPEX Spot electricity market prices for
-      Austria and Germany. Returns JSON data with start/end timestamps and
-      market price in EUR/MWh. Supports optional start and end parameters
-      (epoch milliseconds) to filter the time range. No authentication required.
-      Updated daily at 14:00 CET for the next 24 hours. Available for both
-      Austria (api.awattar.at) and Germany (api.awattar.de).
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.awattar.at/services/api
-    baseURL: https://api.awattar.at
-    tags:
-      - Electricity
-      - Market Price
-      - EPEX Spot
-      - Austria
-      - Germany
-    properties:
-      - type: Documentation
-        url: https://www.awattar.at/services/api
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/awattar/refs/heads/main/openapi.yml
+- aid: awattar:awattar-market-data-api
+  name: aWATTar Market Data API
+  description: EPEX Spot electricity market price data
+  humanURL: https://www.awattar.at/services/api
+  baseURL: https://api.awattar.at
+  tags:
+  - Market Data
+  properties:
+  - type: OpenAPI
+    url: openapi/awattar-market-data-api-openapi.yml
+  - type: Documentation
+    url: https://www.awattar.at/services/api
 common:
   - type: AgenticAccess
     url: agentic-access/awattar-agentic-access.yml
