@@ -1,0 +1,14 @@
+{
+  "provider": "awattar",
+  "sources": [
+    "awattar-market-data-api-openapi.yml"
+  ],
+  "outputs": [
+    "awattar-market-data-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
