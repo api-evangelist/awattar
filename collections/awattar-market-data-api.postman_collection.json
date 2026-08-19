@@ -1,0 +1,261 @@
+{
+  "item": [
+    {
+      "id": "cb95978b-4ae9-4bed-987e-66556a79eb5e",
+      "name": "Market Data",
+      "description": {
+        "content": "EPEX Spot electricity market price data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07f18a9d-69d9-4e98-940a-1cea68531b52",
+          "name": "Get hourly electricity market prices",
+          "request": {
+            "name": "Get hourly electricity market prices",
+            "description": {
+              "content": "Returns a list of hourly EPEX Spot electricity market prices. Prices are updated daily at 14:00 CET covering the following 24-hour period. If no time range is specified, the current day's available data is returned. The API is free to use under a fair-use policy of 100 requests per day per client.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "marketdata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<long>",
+                  "description": "Start of the requested time range as Unix epoch timestamp in milliseconds. If omitted, defaults to the beginning of the current available data window."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<long>",
+                  "description": "End of the requested time range as Unix epoch timestamp in milliseconds. If omitted, defaults to the end of the current available data window."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f15a170-f42c-4788-8963-4251656129c3",
+              "name": "Successful response with a list of hourly market price entries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "marketdata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "1428591600000"
+                    },
+                    {
+                      "key": "end",
+                      "value": "1428678000000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"start_timestamp\": 1428591600000,\n      \"end_timestamp\": 1428595200000,\n      \"marketprice\": 42.09,\n      \"unit\": \"Eur/MWh\"\n    },\n    {\n      \"start_timestamp\": 1428595200000,\n      \"end_timestamp\": 1428598800000,\n      \"marketprice\": 38.5,\n      \"unit\": \"Eur/MWh\"\n    },\n    {\n      \"start_timestamp\": 1428598800000,\n      \"end_timestamp\": 1428602400000,\n      \"marketprice\": -5.12,\n      \"unit\": \"Eur/MWh\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc9df6ba-2b34-46bb-8c51-9ebd286ceb8c",
+              "name": "Bad request - invalid parameter values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "marketdata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "1428591600000"
+                    },
+                    {
+                      "key": "end",
+                      "value": "1428678000000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"rate_limit_exceeded\",\n  \"message\": \"Fair-use limit of 100 requests per day exceeded\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd65f7a3-fb5d-4ee3-954c-372f8ecbd278",
+              "name": "Too many requests - fair-use limit of 100 requests per day per client exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "marketdata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "1428591600000"
+                    },
+                    {
+                      "key": "end",
+                      "value": "1428678000000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"rate_limit_exceeded\",\n  \"message\": \"Fair-use limit of 100 requests per day exceeded\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0d0cef9-9eac-4062-8f8f-aa78472a00b6",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "marketdata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "1428591600000"
+                    },
+                    {
+                      "key": "end",
+                      "value": "1428678000000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"rate_limit_exceeded\",\n  \"message\": \"Fair-use limit of 100 requests per day exceeded\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.awattar.at",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e07624b1-0783-45b2-bc60-47df017ec33d",
+    "name": "aWATTar Market Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API providing hourly EPEX Spot electricity market prices for Austria and Germany. Returns JSON data with start/end timestamps and market price in EUR/MWh. Supports optional start and end parameters (epoch milliseconds) to filter the time range. No authentication required. Updated daily at 14:00 CET for the next 24 hours. Available for both Austria (api.awattar.at) and Germany (api.awattar.de).",
+      "type": "text/plain"
+    }
+  }
+}

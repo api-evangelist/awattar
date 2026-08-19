@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "aWATTar Market Data API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get hourly electricity market prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.awattar.at/v1/marketdata",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start of the requested time range as Unix epoch timestamp in milliseconds. If omitted, defaults to the beginning of the current available data window."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End of the requested time range as Unix epoch timestamp in milliseconds. If omitted, defaults to the end of the current available data window."
+              }
+            ]
+          },
+          "docs": "Returns a list of hourly EPEX Spot electricity market prices. Prices are updated daily at 14:00 CET covering the following 24-hour period. If no time range is specified, the current day's available data is returned. The API is free to use under a fair-use policy of 100 requests per day per client."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
