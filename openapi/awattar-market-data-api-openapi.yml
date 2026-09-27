@@ -71,18 +71,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      description: Error response returned when a request cannot be fulfilled
-      properties:
-        error:
-          type: string
-          description: Machine-readable error code
-          example: rate_limit_exceeded
-        message:
-          type: string
-          description: Human-readable description of the error
-          example: Fair-use limit of 100 requests per day exceeded
     MarketPriceEntry:
       type: object
       description: A single hourly electricity market price data point
@@ -131,6 +119,18 @@ components:
       required:
       - object
       - data
+    ErrorResponse:
+      type: object
+      description: Error response returned when a request cannot be fulfilled
+      properties:
+        error:
+          type: string
+          description: Machine-readable error code
+          example: rate_limit_exceeded
+        message:
+          type: string
+          description: Human-readable description of the error
+          example: Fair-use limit of 100 requests per day exceeded
   examples:
     MarketDataSample:
       summary: Sample market data response with 3 hourly entries
