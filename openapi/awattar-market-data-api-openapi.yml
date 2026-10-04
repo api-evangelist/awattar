@@ -70,6 +70,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
+  examples:
+    MarketDataSample:
+      summary: Sample market data response with 3 hourly entries
+      value:
+        object: list
+        data:
+        - start_timestamp: 1428591600000
+          end_timestamp: 1428595200000
+          marketprice: 42.09
+          unit: Eur/MWh
+        - start_timestamp: 1428595200000
+          end_timestamp: 1428598800000
+          marketprice: 38.5
+          unit: Eur/MWh
+        - start_timestamp: 1428598800000
+          end_timestamp: 1428602400000
+          marketprice: -5.12
+          unit: Eur/MWh
   schemas:
     MarketPriceEntry:
       type: object
@@ -101,6 +119,18 @@ components:
       - end_timestamp
       - marketprice
       - unit
+    ErrorResponse:
+      type: object
+      description: Error response returned when a request cannot be fulfilled
+      properties:
+        error:
+          type: string
+          description: Machine-readable error code
+          example: rate_limit_exceeded
+        message:
+          type: string
+          description: Human-readable description of the error
+          example: Fair-use limit of 100 requests per day exceeded
     MarketDataResponse:
       type: object
       description: A paginated list of hourly electricity market price entries
@@ -119,36 +149,6 @@ components:
       required:
       - object
       - data
-    ErrorResponse:
-      type: object
-      description: Error response returned when a request cannot be fulfilled
-      properties:
-        error:
-          type: string
-          description: Machine-readable error code
-          example: rate_limit_exceeded
-        message:
-          type: string
-          description: Human-readable description of the error
-          example: Fair-use limit of 100 requests per day exceeded
-  examples:
-    MarketDataSample:
-      summary: Sample market data response with 3 hourly entries
-      value:
-        object: list
-        data:
-        - start_timestamp: 1428591600000
-          end_timestamp: 1428595200000
-          marketprice: 42.09
-          unit: Eur/MWh
-        - start_timestamp: 1428595200000
-          end_timestamp: 1428598800000
-          marketprice: 38.5
-          unit: Eur/MWh
-        - start_timestamp: 1428598800000
-          end_timestamp: 1428602400000
-          marketprice: -5.12
-          unit: Eur/MWh
 externalDocs:
   description: aWATTar API Documentation
   url: https://www.awattar.at/services/api
