@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: aWATTar API Plans and Pricing
 description: >-
   aWATTar provides its market data API free of charge with no subscription tiers
@@ -25,3 +29,16 @@ plans:
       - Optional start and end query parameters (epoch milliseconds)
       - No authentication token required
       - Data updated daily at 14:00 CET for the following 24 hours
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
