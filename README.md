@@ -64,20 +64,146 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-aWATTar provides a free, public REST API delivering real-time and next-day hourly electricity spot prices sourced from the EPEX Spot market exchange for both Austria and Germany. The API enables developers, smart home integrators, and commercial operators to build dynamic energy pricing applications that respond to market conditions. Prices are updated daily at 14:00 CET covering the following day, and the API returns JSON data including start/end timestamps and market price per MWh. No authentication token is required, making integration straightforward for any developer.
+aWATTar provides a free, public REST API delivering real-time and next-day hourly electricity spot prices sourced from the EPEX Spot market exchange for both Austria and Germany. The API enables developers, smart home integrators, and commercial operators to build dynamic energy pricing applications that respond to market conditions. Prices are updated daily at 14:00 CET covering the following day, and the API returns JSON data including start/end timestamps and market price per MWh. No authentication token is required, making integration straightforward for any developer. The service is offered free of charge under a fair-use policy of 100 requests per day per client, supporting use cases such as EV charging optimization, smart heating control, and automated energy management systems.
 
-**API Endpoints:**
-- Austria: `https://api.awattar.at/v1/marketdata`
-- Germany: `https://api.awattar.de/v1/marketdata`
+**Areas:** Electricity · Energy · Spot Price · EPEX Spot · Dynamic Pricing · Austria · Germany · Smart Energy · IoT
 
-**Rate Limit:** 100 requests per day (fair-use, IP-based, no token required)
+## aWATTar on APIs.io
 
-**Links:**
-- Website: https://www.awattar.at
-- API Documentation: https://www.awattar.at/services/api
-- GitHub Org: https://github.com/awattarenergy
-- LinkedIn: https://www.linkedin.com/company/awattar
-- Blog: https://www.awattar.at/blog
-- Support: https://support.awattar.at
+Everything profiled for aWATTar is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/awattar/](https://apis.io/providers/awattar/)** — or go straight to one of the APIs or properties below.
 
-**Maintained by:** Kin Lane (kin@apievangelist.com)
+### APIs (1)
+
+- [aWATTar Market Data API](https://apis.io/apis/awattar/awattar-market-data-api/) — EPEX Spot electricity market price data
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Awattar Agentic Access](https://apis.io/agentic-access/awattar/awattar-agentic-access/)
+
+#### JSON Schema (1)
+
+The data models the API reads and writes.
+
+- [aWATTar Market Data Response](https://apis.io/schemas/awattar/awattar-market-data-response/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Awattar Context](https://apis.io/jsonld/awattar/awattar-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [aWATTar API Vocabulary](https://apis.io/vocabularies/awattar/awattar-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Awattar Market Data Example](https://apis.io/examples/awattar/awattar-market-data-example/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [aWATTar Market Data API](https://apis.io/collections/awattar/open-awattar-market-data-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [aWATTar — jsonschema rules](https://apis.io/rules/awattar/awattar-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Awattar Domain Security](https://apis.io/security/awattar/awattar-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Awattar Plans Pricing](https://apis.io/plans/awattar/awattar-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Awattar Rate Limits](https://apis.io/rate-limits/awattar/awattar-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Awattar Finops](https://apis.io/finops/awattar/awattar-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.awattar.at)
+- [Documentation](https://www.awattar.at/services/api)
+- [Pricing](https://www.awattar.at/tariffs/hourly)
+- [Blog](https://www.awattar.at/blog)
+
+## API Evangelist rating
+
+**Kin Score 27.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 53.8 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 15.8 |
+
+**Agent readiness 30.3** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 9.0** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/awattar/](https://apis.io/providers/awattar/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for aWATTar: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/awattar/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
